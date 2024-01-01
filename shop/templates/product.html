@@ -28,14 +28,13 @@
                 ₱{{ product.sale_price }}
     
             {%  else %}
-            ₱{{ product.price }}
-              
+              ₱{{ product.price }}
+    
             {% endif %}
             
             <br/><br/>
               <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>
-              <button type="button" value="{{ product.id }}"
-              class="btn btn-secondary" id="add-cart">Add To Cart</button>
+              <button type="button" value="{{ product.id }}" class="btn btn-secondary" id="add-cart">Add To Cart</button>
             </center>
             </div>
           </div>
@@ -60,7 +59,7 @@ $(document).on('click', '#add-cart', function(e){
 
         success: function(json){
           //console.log(json)
-          $('#cart_quantity').text(json.quantity);
+          document.getElementById('cart_quantity').textContent = json.qty
         },
 
         error: function(xhr, errmsg, err){
